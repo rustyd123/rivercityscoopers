@@ -1,3 +1,8 @@
+// Hide the “Service Frequency” section when One‑Time Cleanup is selected
+;(function(){const s=document.getElementById("serviceType"),
+ fWrap=s.closest("form").querySelector("#frequency").parentElement;
+ function upd(){fWrap.style.display = s.value==="One-Time Cleanup"?"none":"block"}
+ s.addEventListener("change",upd);upd();})();
 // Toggle frequency visibility based on service type
 const svc = document.getElementById("serviceType"); const freq = document.getElementById("frequency"); const freqWrap = freq.parentElement;
 function _upd(){ freqWrap.style.display = svc.value==="One-Time Cleanup" ? "none" : "block"; }
