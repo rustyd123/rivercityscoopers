@@ -1,3 +1,8 @@
+// Toggle frequency visibility based on service type
+const svc = document.getElementById("serviceType"); const freq = document.getElementById("frequency"); const freqWrap = freq.parentElement;
+function _upd(){ freqWrap.style.display = svc.value==="One-Time Cleanup" ? "none" : "block"; }
+svc.addEventListener("change",_upd);
+_upd();
 // —— CONFIGURE THESE —————————————————— //
 const SQUARE_APP_ID      = 'YOUR_SQUARE_APP_ID';
 const SQUARE_LOCATION_ID = 'YOUR_LOCATION_ID';
