@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DogWasteRemovalNow.com – Clean Yards, Happy Dogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dog waste removal services in Bullhead City, Laughlin, Kingman, and Mohave Valley. Weekly or bi-weekly poop scooping so you can enjoy a fresh yard.">
+
+  <!-- Link to CSS in /css folder -->
+  <link rel="stylesheet" href="css/style.css">
+<head>
+<style>
+  #leadForm {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+  }
+
+  #leadForm .form-group {
+    margin-bottom: 15px;
+  }
+
+  #leadForm input,
+  #leadForm select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  #leadForm button {
+    width: 100%;
+    background-color: #00b300;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #leadForm button:hover {
+    background-color: #009900;
+  }
+
+  #thankYouMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: green;
+  }
+</style>
+</head>
+<script>
+  function showThankYou(e) {
+    e.preventDefault();
+    const form = document.getElementById("leadForm");
+    const message = document.getElementById("thankYouMessage");
+
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: {
+        Accept: "application/json"
+      }
+    }).then(response => {
+      form.reset();
+      form.style.display = "none";
+      message.style.display = "block";
+    }).catch(error => {
+      alert("Oops! Something went wrong.");
+    });
+  }
+</script>
+
+
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- BRANDING: replaced text with logo.png -->
+      <div class="branding">
+        <a href="#hero" class="brand-link">
+          <img src="images/logo.png" alt="DogWasteRemovalNow.com" class="brand-logo-img" />
+        </a>
+      </div>
+
+      <!-- HAMBURGER ICON -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- NAV LINKS -->
+      <nav class="nav-links" id="nav-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="benefits.html">Why Us</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="guarantee.html">Guarantee</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          
+          <li class="dropdown">
+            <a href="#">Areas We Serve</a>
+            <ul class="dropdown-menu">
+              <li><a href="bullhead.html">Bullhead</a></li>
+              <li><a href="mohave-valley.html">Mohave Valley</a></li>
+              <li><a href="laughlin.html">Laughlin</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Never Scoop Poop Again!</h1>
+      <p>Only $14.00 No Initial Fee, No Contracts</p>
+      <p class="hero-cities">
+        <a href="bullhead.html">Bullhead</a>, 
+        <a href="laughlin.html">Laughlin</a>, 
+        <a href="mohave-valley.html">Mohave Valley</a>
+      </p>
+      <!-- Optional CTA button still here -->
+      <a class="btn cta-btn" href="signupform.html">Schedule First Cleaning</a>
+      <a href="tel:7028031217" class="btn-locations"> 📞702-803-1217</a>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing" class="section pricing">
+    <div class="section-media">
+      <img src="images/pricing.png" alt="Pricing options">
+    </div>
+    <div>
+      <h2 style="color: #ff6600; font-family: 'Bangers', cursive;">Simple, Transparent Pricing</h2>
+      <p style="font-size: 1.1em;">No contracts. No surprises. Just a cleaner yard—guaranteed.</p>
+
+      <ul style="list-style: none; padding-left: 0; font-size: 1.1em; line-height: 1.8;">
+        <li><strong>🐾 Weekly Service:</strong> $14/visit <em>(up to 2 dogs)</em></li>
+        <li><strong>🌵 Bi-Weekly:</strong> $20/visit</li>
+        <li><strong>🚨 One-Time Cleanup:</strong> $30/visit</li>
+      </ul>
+
+      <p style="margin-top: 1em; font-size: 1em;">
+        <strong>Why families choose us:</strong><br>
+        ✔ Fast & reliable every time<br>
+        ✔ Perfect for busy households<br>
+        ✔ Safe for pets & drought-tolerant yards
+      </p>
+
+      <div style="margin-top: 1em;">
+        <a href="signupform.html" class="quote-btn" style="background-color: #00cc00; padding: 10px 20px; border-radius: 6px; color: #fff; font-weight: bold; text-decoration: none;">💬 Quick Quote</a>
+        <a href="tel:7028031217" class="btn-locations"> 📞702-803-1217</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE SECTION -->
+  <section id="guarantee" class="section guarantee">
+    <div class="section-text">
+      <h2 style="color: #ff6600; font-family: 'Bangers', cursive;">Our 100% Poop-Free Guarantee</h2>
+
+      <p style="font-size: 1.1em; margin-bottom: 1em;">
+        🐶 <strong>We know what you're thinking...</strong><br>
+        If the first cleanup isn’t perfect, what happens?<br>
+        <strong>We make it right — fast and free.</strong>
+      </p>
+
+      <ul style="list-style: none; padding-left: 0; font-size: 1.1em; line-height: 1.8;">
+        <li>🧼 <strong>No Stress:</strong> We come back and re-clean — no questions asked.</li>
+        <li>🛑 <strong>100% Satisfaction:</strong> If it’s not spotless, it’s on us.</li>
+        <li>🎯 <strong>Worry-Free Experience:</strong> No contracts. No pressure. Just results.</li>
+      </ul>
+
+      <p style="margin-top: 1.2em; font-size: 1em;">
+        ✨ Built for busy families and pet lovers who want their yard clean, fresh, and hassle-free — every time.
+      </p>
+
+      <p style="font-size: 1em; font-weight: bold; margin-top: 1em;">
+        🔥 Try us risk-free. If we miss anything, you don’t pay a dime.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div style="margin-top: 1.5em;">
+        <a href="signupform.html" class="quote-btn" style="background-color: #00cc00; padding: 10px 20px; border-radius: 6px; color: #fff; font-weight: bold; text-decoration: none;">💬 Schedule My Cleanup</a>
+        <a href="tel:7028031217" class="btn-locations"> 📞702-803-1217</a>
+      </div>
+
+    </div>
+    <div class="section-media">
+      <img src="images/guarantee.png" alt="Satisfaction guarantee">
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-overlay">
+      <h2>Ready to Stop Scooping?</h2>
+      <p>Get our local pros to handle the dirty work—so you can enjoy your backyard worry-free.</p>
+      <a class="btn cta-btn" href="signupform.html">Quick Quote</a>
+      <a href="tel:7028031217" class="btn-locations"> 📞702-803-1217</a>
+    </div>
+  </section>
+
+ <!-- CONTACT SECTION -->
+<section id="contact" class="section contact">
+  <h2>Get a Free Quote</h2>
+  <p>Fill out the form and we’ll be in touch to schedule your first cleanup.</p>
+
+<form id="leadForm" action="https://formspree.io/f/mgvkrzbl" method="POST" onsubmit="showThankYou(event)">
+  <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+  <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+  <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone" required></div>
+  <div class="form-group"><input type="text" name="address" placeholder="Your Address" required></div>
+  <div class="form-group"><input type="text" name="dogs" placeholder="How many dogs?" required></div>
+  <div class="form-group">
+    <select name="frequency" required>
+      <option value="">Frequency of service…</option>
+      <option value="Once">Once</option>
+      <option value="Weekly">Weekly</option>
+      <option value="Biweekly">Biweekly</option>
+      <option value="Monthly">Monthly</option>
+    </select>
+  </div>
+  <button type="submit">Send</button>
+</form>
+
+<div id="thankYouMessage" style="display: none;">
+  Thanks! We'll be in touch shortly.
+</div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2025 DogWasteRemovalNow.com – Bullhead, Laughlin, Kingman &amp; Mohave Valley</p>
+    </div>
+  </footer>
+
+  <!-- JS in /js folder -->
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.querySelector('.nav-links ul');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    });
+  </script>
+  <script src="js/main.js"></script>
+<script async src="https://user.callnowbutton.com/domain_XXXXXXXX.js"></script>
+<script async src="https://user.callnowbutton.com/domain_a37a40b9_acef_42c1_a63c_b5278031bc61.js"></script>
+</body>
+</html>

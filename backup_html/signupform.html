@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Get a Free Quote | Dog Waste Removal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Get a free dog-waste-removal quote for Bullhead City, Laughlin, Kingman, and Mohave Valley."
+  />
+  <!-- main site stylesheet -->
+  <!-- Link to CSS in /css folder -->
+  <link rel="stylesheet" href="css/style.css">
+<style>
+  #leadForm {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+  }
+
+  #leadForm .form-group {
+    margin-bottom: 15px;
+  }
+
+  #leadForm input,
+  #leadForm select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  #leadForm button {
+    width: 100%;
+    background-color: #00b300;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #leadForm button:hover {
+    background-color: #009900;
+  }
+
+  #thankYouMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: green;
+  }
+</style>
+
+ </head>
+<script>
+  function showThankYou(e) {
+    e.preventDefault();
+    const form = document.getElementById("leadForm");
+    const message = document.getElementById("thankYouMessage");
+
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: {
+        Accept: "application/json"
+      }
+    }).then(response => {
+      form.reset();
+      form.style.display = "none";
+      message.style.display = "block";
+    }).catch(error => {
+      alert("Oops! Something went wrong.");
+    });
+  }
+</script>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="branding">
+        <a href="signupform.html#leadForm" class="brand-link">
+          <img src="images/logo.png" alt="Dog Waste Removal Logo" class="brand-logo-img" />
+          <img src="images/title.png" alt="Desert Dog Waste Removal" class="brand-title-img" />
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="benefits.html">Why Us</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="guarantee.html">Guarantee</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown">
+            <a href="#">Areas We Serve</a>
+            <ul class="dropdown-menu">
+              <li><a href="bullhead.html">Bullhead</a></li>
+              <li><a href="mohave-valley.html">Mohave Valley</a></li>
+              <li><a href="laughlin.html">Laughlin</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+ <section id="contact" class="section contact">
+  <h2>Get a Free Quote</h2>
+  <h3>Fill out the form and we’ll be in touch to schedule your first cleanup today.</h3>
+
+<form id="leadForm" action="https://formspree.io/f/mgvkrzbl" method="POST" onsubmit="showThankYou(event)">
+  <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+  <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+  <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone" required></div>
+  <div class="form-group"><input type="text" name="address" placeholder="Your Address" required></div>
+  <div class="form-group"><input type="text" name="dogs" placeholder="How many dogs?" required></div>
+  <div class="form-group">
+    <select name="frequency" required>
+      <option value="">Frequency of service…</option>
+      <option value="Once">Once</option>
+      <option value="Weekly">Weekly</option>
+      <option value="Biweekly">Biweekly</option>
+      <option value="Monthly">Monthly</option>
+    </select>
+  </div>
+  <button type="submit">Send</button>
+</form>
+
+<div id="thankYouMessage" style="display: none;">
+  Thanks! We'll be in touch shortly.
+</div>
+</div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>
+        © 2025 DogWasteRemovalNow.com – Bullhead, Laughlin, Kingman &amp; Mohave
+        Valley
+      </p>
+    </div>
+  </footer>
+
+  <!-- your main JS -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Get Your Free Quote</title>
+  <meta name="description" content="Fill out our quick form—no contracts, no hidden fees—and get back your weekends, your peace of mind, and a spotless yard.">
+  <link rel="stylesheet" href="css/style.css">
+<head>
+  <!-- existing meta tags, title, etc. -->
+
+  <!-- Add this block below -->
+<style>
+  #leadForm {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+  }
+
+  #leadForm .form-group {
+    margin-bottom: 15px;
+  }
+
+  #leadForm input,
+  #leadForm select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  #leadForm button {
+    width: 100%;
+    background-color: #00b300;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #leadForm button:hover {
+    background-color: #009900;
+  }
+
+  #thankYouMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: green;
+  }
+</style>
+
+</head>
+
+</head>
+<script>
+  function showThankYou(e) {
+    e.preventDefault();
+    const form = document.getElementById("leadForm");
+    const message = document.getElementById("thankYouMessage");
+
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: {
+        Accept: "application/json"
+      }
+    }).then(response => {
+      form.reset();
+      form.style.display = "none";
+      message.style.display = "block";
+    }).catch(error => {
+      alert("Oops! Something went wrong.");
+    });
+  }
+</script>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="branding">
+        <a href="index.html" class="brand-link">
+          <img src="images/logo.png" alt="DogWasteRemovalNow.com">
+          <img src="images/title.png" alt="Desert Dog Waste Removal" class="brand-title-img" />
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="nav-links" id="nav-links">
+             <nav class="nav-links" id="nav-links">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="benefits.html">Why Us</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="guarantee.html">Guarantee</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    
+    <li class="dropdown">
+      <a href="#">Areas We Serve ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="bullhead.html">Bullhead</a></li>
+        <li><a href="mohave-valley.html">Mohave Valley</a></li>
+        <li><a href="laughlin.html">Laughlin</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- Hero Intro -->
+    <section class="section">
+      <div class="section-media">
+        <img src="images/contact.jpg" alt="Get Your Free Quote" width="600" height="400">
+      </div>
+      <div class="section-text">
+        <h2 style="font-family: 'Bangers', cursive; color: #ff6600;">Get a Free Dog Waste Removal Quote in Bullhead, Laughlin, & Mohave Valley</h2>
+
+<p style="font-size: 1.1em; margin-bottom: 1em;">
+🦴 Fast, local, reliable — just fill out this form and we’ll contact you within 24 hours to schedule your first cleanup.  
+We serve homes across <strong>Bullhead City, Mohave Valley, & Laughlin</strong> and nearby areas.
+</p>
+
+<ul style="list-style: none; padding-left: 0; font-size: 1.1em; line-height: 1.8;">
+  <li>✔ No contracts, ever</li>
+  <li>✔ 100% Poop-Free Guarantee</li>
+  <li>✔ Pet-safe, drought-friendly cleanup</li>
+</ul>
+        <a class="btn cta-btn" href="signupform.html">Schedule First Cleaning</a>
+        <a href="tel:7028031217" class="btn-locations"> 📞702-803-1217</a>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section contact">
+      <h2>Get Your Free Quote</h2>
+      <p style="font-size: 1em; margin-bottom: 1em;">
+We’ll never spam you or sell your info. We’re local — and we treat our customers like neighbors.
+</p>
+ <form id="leadForm" action="https://formspree.io/f/mgvkrzbl" method="POST" onsubmit="showThankYou(event)">
+  <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+  <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+  <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone" required></div>
+  <div class="form-group"><input type="text" name="address" placeholder="Your Address" required></div>
+  <div class="form-group"><input type="text" name="dogs" placeholder="How many dogs?" required></div>
+  <div class="form-group">
+    <select name="frequency" required>
+      <option value="">Frequency of service…</option>
+      <option value="Once">Once</option>
+      <option value="Weekly">Weekly</option>
+      <option value="Biweekly">Biweekly</option>
+      <option value="Monthly">Monthly</option>
+    </select>
+  </div>
+  <button type="submit">Send</button>
+</form>
+
+<div id="thankYouMessage" style="display: none;">
+  Thanks! We'll be in touch shortly.
+</div>
+
+<div style="margin-top: 2em;">
+  <h3 style="color: #333;">Prefer to reach out directly?</h3>
+  <p style="font-size: 1.1em;">
+    📞 <strong>Call or Text:</strong> <a href="tel:7028031217" style="color: #00cc00;">702-803-1217</a><br>
+    📧 <strong>Email:</strong> <a href="mailto:hello@dogwasteremovalnow.com">hello@dogwasteremovalnow.com</a>
+  </p>
+</div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2025 DogWasteRemovalNow.com – Bullhead, Laughlin, &amp; Mohave Valley</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+<script>
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // stop default submission
+  const form = e.target;
+
+  // Instantly show thank you message
+  document.getElementById('thankYouMessage').style.display = 'block';
+
+  // Optionally hide the form
+  form.style.display = 'none';
+
+  // Now actually send the form data to Formspree
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+});
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>River City Scoopers Signup</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/onboarding.css">
+  <!-- Square SDK -->
+  <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up for River City Scoopers</h1>
+
+    <!-- STEP 1: Quote -->
+    <div id="step1">
+      <!-- Contact info -->
+      <label>Full Name
+        <input type="text" id="rsc-name" name="name" required>
+      </label>
+      <label>Address
+        <input type="text" id="rsc-address" name="address" required>
+      </label>
+      <label>City
+        <input type="text" id="rsc-city" name="city" required>
+      </label>
+      <label>Phone (cell)
+        <input type="tel" id="rsc-phone" name="phone" required>
+      </label>
+      <label>Email
+        <input type="email" id="rsc-email" name="email" required>
+      </label>
+
+      <!-- Service details -->
+      <label>
+        Service Type
+        <select id="rsc-service-type">
+          <option value="subscription">Subscription Service</option>
+          <option value="onetime">One‑Time Cleanup</option>
+        </select>
+  <!-- Service Frequency (shown only for subscriptions) -->
+  <div id="frequency-container" class="hidden" style="margin-top: 0.5em;">
+    <label for="rsc-frequency" style="display:block; font-weight:600;">Service Frequency</label>
+    <select id="rsc-frequency" name="frequency" style="width:100%; padding:.5em; border:1px solid #ccc; border-radius:4px;">
+      <option value="weekly">Once a Week</option>
+      <option value="twiceweekly">Two Times a Week</option>
+      <option value="biweekly">Bi‑Weekly</option>
+      <option value="monthly">Once a Month</option>
+    </select>
+  </div>
+      </label>
+
+
+      <label>
+        Number of Dogs
+        <select id="rsc-dogs">
+          <option value="1">1</option><option value="2">2</option>
+          <option value="3">3</option><option value="4">4</option>
+        </select>
+      </label>
+
+      <label>
+        Time Since Last Cleanup
+      <select id="rsc-time-since">
+        <option value="oneweek">One Week</option>
+        <option value="twoweeks">Two Weeks</option>
+        <option value="threeweeks">Three Weeks</option>
+        <option value="onemonth">One Month</option>
+        <option value="twomonths">Two Months</option>
+        <option value="3to4months">3–4 Months</option>
+        <option value="5to6months">5–6 Months</option>
+        <option value="7to9months">7–9 Months</option>
+        <option value="10plusmonths">10+ Months</option>
+      </select>
+      </label>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="rsc-badge">
+        <label for="rsc-badge">Get a $5 discount with every visit with Yard Badge Program</label>
+      </div>
+      <p class="badge-info">
+        Checking this box lets us place a small yard badge on your property in exchange for a $5/week discount.
+        It helps neighbors identify our service and can earn you referral credits.
+      </p>
+
+      <div id="rsc-quote-summary">Total: $0.00</div>
+      <button id="rsc-get-quote">Get Quote →</button>
+    </div>
+
+    <!-- STEP 2: Payment -->
+    <div id="step2" class="hidden">
+      <h2>Your Price</h2>
+      <div id="rsc-final-summary"></div>
+      <div id="rsc-card-container"></div>
+      <button id="rsc-pay-button">Pay & Submit</button>
+    </div>
+  </div>
+
+  <script src="assets/onboarding.js" defer></script>
+</body>
+</html>
