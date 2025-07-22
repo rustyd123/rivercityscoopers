@@ -107,7 +107,7 @@ serviceType.addEventListener('change', () => {
     // immediately attach Square card input
     const payments = Square.payments(SQUARE_APP_ID, SQUARE_LOCATION_ID);
     const card     = await payments.card();
-    await card.attach('#card-container');
+    await card.attach('#rsc-card-container');
   });
 
   // STEP 2 → Pay & Submit
