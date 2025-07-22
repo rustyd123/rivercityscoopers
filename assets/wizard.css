@@ -1,0 +1,7 @@
+/* show only the active step */
+.rsc-step { display: none; }
+.rsc-step:not(.hidden) { display: block; }
+
+.hidden { visibility: hidden; height: 0; }
+
+/* (add any extra styling you need for the panel, buttons, transitions…) */

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>River City Scoopers – Signup Wizard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts & base styles -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap"
+  />
+  <link rel="stylesheet" href="assets/onboarding.css" />
+
+  <!-- Wizard styles -->
+  <link rel="stylesheet" href="assets/wizard.css" />
+</head>
+<body>
+  <!-- Config + helpers -->
+  <script>
+    window.RSC_CONFIG = {
+      squareAppId:  "sandbox‑sq0idb‑hswi0tB4LzWvKOcFzRFA1A",
+      squareLocationId: "LYHTPN29913KN",
+      apiUrl: "/process_payment.php"
+    };
+
+    window.calculateQuote = () => { /*…copy your calculateQuote code here…*/ };
+    window.buildPayload   = (t) => { /*…copy your buildPayload code here…*/ };
+  </script>
+
+  <!-- Wizard Container -->
+  <div id="rsc-wizard">
+    <!-- Step 1… Step 2… Step 3… (copy exactly the HTML you showed above) -->
+  </div>
+
+  <!-- Wizard behavior + Square integration -->
+  <script src="assets/wizard.js"></script>
+</body>
+</html>
