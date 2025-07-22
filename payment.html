@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment – River City Scoopers</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="assets/onboarding.css">
+<script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+</head>
+<body class="container" style="max-width:620px;margin:40px auto;">
+  <h1 style="text-align:center;font-family:'Pacifico',cursive;color:#c00;">Complete Your Signup</h1>
+  <div id="quote-summary" class="card" style="padding:1rem;margin-bottom:1rem;"></div>
+
+  <div id="card-container"></div>
+  <button id="pay-button" class="btn btn-warning" style="margin-top:1rem;">Pay Now</button>
+
+  <script>
+    // --- read query params ---
+    const params = new URLSearchParams(location.search);
+    const name   = params.get('name')  || '';
+    const addr   = params.get('addr')  || '';
+    const city   = params.get('city')  || '';
+    const email  = params.get('email') || '';
+    const phone  = params.get('phone') || '';
+    const svc    = params.get('svc')   || '';
+    const freq   = params.get('freq')  || '';
+    const dogs   = params.get('dogs')  || '';
+    const badge  = params.get('badge') === '1' ? true : false;
+    const first  = parseFloat(params.get('first') || '0');
+    const ongoing= parseFloat(params.get('ongoing') || '0');
+
+    // amount due today = first visit price
+    const dueToday = first.toFixed(2);
+
+    document.getElementById('quote-summary').innerHTML = `
+      <p><strong>${name}</strong><br>${addr}, ${city}</p>
+      <table class="table" style="width:100%;font-size:0.9rem;">
+        <tr><th style="text-align:left;">Initial Cleanup</th><td style="text-align:right;">$${first.toFixed(2)}</td></tr>
+        ${svc === 'Subscription Service'
+            ? `<tr><th style="text-align:left;">${freq} Service (after)</th><td style="text-align:right;">$${ongoing.toFixed(2)}</td></tr>`
+            : ''}
+        ${badge ? `<tr><th style="text-align:left;">Yard Badge Discount (ongoing)</th><td style="text-align:right;">Included</td></tr>`:''}
+        <tr style="border-top:1px solid #333;"><th style="text-align:left;">Amount Due Today</th><td style="text-align:right;font-weight:bold;">$${dueToday}</td></tr>
+      </table>
+    `;
+
+    // --- Square card setup ---
+const appId = 'sandbox-sg0idb-hswi0tB4LzWrKOcFRF1A1A';
+const locationId = 'LYHTEPN29913KN';
+document.getElementById('pay-button').addEventListener('click', initPay);
+async function initPay(){
+  const payments = window.Square.payments(appId, locationId);
+  const card = await payments.card();
+  await card.attach('#card-container');
+  document.getElementById('pay-button').onclick = async () => {
+    const result = await card.tokenize();
+    if(result.status !== 'OK'){ alert('Card error'); return;}
+    const resp = await fetch('payment.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nonce:result.token,first:})});
+    const data = await resp.json();
+    if(data.ok){ alert('Payment success!'); } else { alert('Payment failed'); }
+  };
+}
+    const appId = 'sandbox-REPLACE_ME';      // TODO: put real sandbox app id
+    const locationId = 'REPLACE_ME';         // TODO: location id
+    const payments = Square.payments(appId, locationId);
+
+    async function main() {
+      const card = await payments.card();
+      await card.attach('#card-container');
+
+      document.getElementById('pay-button').addEventListener('click', async () => {
+        document.getElementById('pay-button').disabled = true;
+        const result = await card.tokenize();
+        if (result.status !== 'OK') {
+          alert('Card error: ' + (result.errors?.[0]?.message || 'unknown'));
+          document.getElementById('pay-button').disabled = false;
+          return;
+        }
+        // POST to backend
+        const payload = {
+          nonce: result.token,
+          name, addr, city, email, phone,
+          svc, freq, dogs, badge,
+          first: first.toFixed(2),
+          ongoing: ongoing.toFixed(2)
+        };
+        const resp = await fetch('process_payment.php', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        });
+        const data = await resp.json();
+        if (data.success) {
+          window.location = 'thank-you.html';
+        } else {
+          alert('Payment failed: ' + (data.error || 'unknown'));
+          document.getElementById('pay-button').disabled = false;
+        }
+      });
+    }
+    main();
+  </script>
+</body>
+</html>
