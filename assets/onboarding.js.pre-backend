@@ -11,7 +11,7 @@ _upd();
 // —— CONFIGURE THESE —————————————————— //
 const SQUARE_APP_ID      = 'YOUR_SQUARE_APP_ID';
 const SQUARE_LOCATION_ID = 'YOUR_LOCATION_ID';
-const API_URL = '/process_payment.php';
+const SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/…/exec';
 // ——————————————————————————————————————————————— //
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -129,7 +129,6 @@ serviceType.addEventListener('change', () => {
 
     // payload to your webhook / backend
     const payload = {
-    amountCents: amountCents,
       name:        el('rsc-name').value,
       address:     el('rsc-address').value,
       city:        el('rsc-city').value,
@@ -146,7 +145,7 @@ serviceType.addEventListener('change', () => {
       squareToken: tokenRes.token
     };
 
-    const resp = await fetch(API_URL, {
+    const resp = await fetch(SHEETS_WEBHOOK_URL, {
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify(payload)
