@@ -88,6 +88,6 @@
   document.getElementById('acceptBtn').addEventListener('click', (e)=>{
     e.preventDefault();
     // TODO: swap to /pay.html once we build Square step
-    alert('Next: payment step (not yet wired).');
+    window.location.href = 'payment.html' + location.search + '&first=' + first.toFixed(2) + '&ongoing=' + ongoing.toFixed(2);
   });
 })();
